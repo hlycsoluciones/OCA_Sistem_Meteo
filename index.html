@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
+
+  <!-- Cargar componente personalizado -->
+  <script src="oca-widget.js"></script>
+
+  <!-- Manifest de la PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Color superior en Android -->
+  <meta name="theme-color" content="#0a0a0a">
+</head>
+
+<body>
+  <h2 style="font-family:sans-serif;text-align:center;">
+    Insertado en tu web HLyC Soluciones
+  </h2>
+
+  <!-- Widget con conexión local -->
+  <oca-meteo-widget
+    api="http://127.0.0.1:8000"
+    series="consumo kWh"
+    horizon="168"
+    price="0.20"
+    system="aerotermia">
+  </oca-meteo-widget>
+
+  <!-- Registrar Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("SW registrado"))
+        .catch(err => console.log("Error al registrar SW:", err));
+    }
+  </script>
+
+</body>
+</html>
