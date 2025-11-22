@@ -57,7 +57,8 @@ class OcaMeteoWidget extends HTMLElement {
     }
 
     connectedCallback() {
-        this.api = this.getAttribute("api") || "http://127.0.0.1:8000";
+        // 👉 Por defecto apuntamos al backend de Render
+        this.api = this.getAttribute("api") || "https://oca-sistem-meteo.onrender.com";
 
         this.initNotifications();
         this.loadCombined();
@@ -199,3 +200,4 @@ class OcaMeteoWidget extends HTMLElement {
 }
 
 customElements.define("oca-meteo-widget", OcaMeteoWidget);
+
