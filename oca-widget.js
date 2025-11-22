@@ -70,9 +70,7 @@ class OcaMeteoWidget extends HTMLElement {
         };
     }
 
-    // ===========================================================
     // 1. NOTIFICACIONES PUSH
-    // ===========================================================
     initNotifications() {
         if ("Notification" in window && Notification.permission === "default") {
             Notification.requestPermission();
@@ -85,9 +83,7 @@ class OcaMeteoWidget extends HTMLElement {
         }
     }
 
-    // ===========================================================
     // 2. CARGAR DATOS COMBINADOS
-    // ===========================================================
     async loadCombined() {
         try {
             const url = `${this.api}/meteo/combined`;
@@ -111,9 +107,7 @@ class OcaMeteoWidget extends HTMLElement {
         }
     }
 
-    // ===========================================================
     // 3. CARGAR PROBABILIDAD DE LLUVIA (IA)
-    // ===========================================================
     async loadAI() {
         try {
             const res = await fetch(`${this.api}/meteo/ai_rain`);
@@ -131,9 +125,7 @@ class OcaMeteoWidget extends HTMLElement {
         }
     }
 
-    // ===========================================================
     // 4. REFRESH AUTOMÁTICO CADA 10 MINUTOS
-    // ===========================================================
     startAutoRefresh() {
         setInterval(() => {
             this.loadCombined();
@@ -141,9 +133,7 @@ class OcaMeteoWidget extends HTMLElement {
         }, 10 * 60 * 1000);
     }
 
-    // ===========================================================
     // 5. GRAFICO
-    // ===========================================================
     drawChart(labels, values) {
         const ctx = this.shadowRoot.getElementById("chart");
 
@@ -178,9 +168,7 @@ class OcaMeteoWidget extends HTMLElement {
         });
     }
 
-    // ===========================================================
     // 6. CHATGPT
-    // ===========================================================
     async askAI(q) {
         try {
             const res = await fetch(`${this.api}/chatgpt`, {
@@ -200,4 +188,3 @@ class OcaMeteoWidget extends HTMLElement {
 }
 
 customElements.define("oca-meteo-widget", OcaMeteoWidget);
-
