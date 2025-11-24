@@ -1,22 +1,22 @@
 {
-  "name": "OCA_Sistem_Meteo",
-  "short_name": "OCA_Meteo",
-  "start_url": "/index.html",
-  "scope": "/",
+  "name": "OCA Sistem Meteo",
+  "short_name": "OCA Meteo",
+  "start_url": "/OCA_Sistem_Meteo/",
+  "scope": "/OCA_Sistem_Meteo/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
-  "description": "Aplicación meteorológica con IA desarrollada por OCA Sistem",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
-      "src": "icons/oca_192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icons/oca_512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ]
 }
+
